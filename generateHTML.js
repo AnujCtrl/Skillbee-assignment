@@ -99,7 +99,7 @@ function generateHTML() {
                     }
                     console.log(uppercaseData);
                     rendered = eta.render(template, uppercaseData);
-                    outputFilePath = path.join(__dirname, "".concat(data.activity.replace(/\s+/g, ''), ".html"));
+                    outputFilePath = path.join(__dirname, "output", "".concat(data.activity.replace(/\s+/g, ''), ".html"));
                     return [4 /*yield*/, fs.promises.writeFile(outputFilePath, rendered)];
                 case 3:
                     _a.sent();
@@ -110,4 +110,7 @@ function generateHTML() {
     });
 }
 exports.generateHTML = generateHTML;
-generateHTML();
+for (var _i = 0, _a = Array(10); _i < _a.length; _i++) {
+    var i = _a[_i];
+    generateHTML();
+}
