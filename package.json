@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "eta": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "jest": "^29.5.0"
+  }
+}
