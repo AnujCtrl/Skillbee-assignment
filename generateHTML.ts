@@ -56,13 +56,13 @@ export async function generateHTML(i: number) {
   console.log(uppercaseData);
 
   const rendered = eta.render(template, uppercaseData);
-  const outputFilePath = path.join(__dirname,"output", `${i}.html`);
+  const outputFilePath = path.join(__dirname,"output", `out${i}.html`);
   await fs.promises.writeFile(outputFilePath, rendered);
 
   console.log('HTML file generated:', outputFilePath);
 }
 
 
-for (const i of Array(10)) {
+for (let i = 0; i < 10; i++) {
   generateHTML(i);
 }

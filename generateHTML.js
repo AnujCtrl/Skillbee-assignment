@@ -70,7 +70,7 @@ function getActivity() {
 //   key: "2237769",
 //   accessibility: 0.32,
 // };
-function generateHTML() {
+function generateHTML(i) {
     return __awaiter(this, void 0, void 0, function () {
         var templatePath, template, data, uppercaseData, key, value, rendered, outputFilePath;
         return __generator(this, function (_a) {
@@ -99,7 +99,7 @@ function generateHTML() {
                     }
                     console.log(uppercaseData);
                     rendered = eta.render(template, uppercaseData);
-                    outputFilePath = path.join(__dirname, "output", "".concat(data.activity.replace(/\s+/g, ''), ".html"));
+                    outputFilePath = path.join(__dirname, "output", "out".concat(i, ".html"));
                     return [4 /*yield*/, fs.promises.writeFile(outputFilePath, rendered)];
                 case 3:
                     _a.sent();
@@ -110,7 +110,6 @@ function generateHTML() {
     });
 }
 exports.generateHTML = generateHTML;
-for (var _i = 0, _a = Array(10); _i < _a.length; _i++) {
-    var i = _a[_i];
-    generateHTML();
+for (var i = 0; i < 10; i++) {
+    generateHTML(i);
 }
