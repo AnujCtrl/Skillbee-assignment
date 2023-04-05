@@ -2,7 +2,6 @@ import eta = require("eta");
 import path = require("path");
 import fs = require("fs");
 import axios from "axios";
-import { describe, expect, it } from "@jest/globals";
 import { generateHTML } from "./generateHTML";
 
 describe("generateHTML", () => {
@@ -16,9 +15,9 @@ describe("generateHTML", () => {
       key: "2237769",
       accessibility: 0.32,
     };
-    const outputPath = path.join(__dirname, "test-output.html");
+    const outputPath = path.join(__dirname, "output/out1.html");
 
-    await generateHTML();
+    await generateHTML(1);
 
     const savedHtml = await fs.promises.readFile(outputPath, "utf-8");
 

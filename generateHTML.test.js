@@ -36,80 +36,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateHTML = void 0;
-var eta = require("eta");
 var path = require("path");
 var fs = require("fs");
-var axios_1 = require("axios");
-function getActivity() {
-    return __awaiter(this, void 0, void 0, function () {
-        var response, error_1;
+var generateHTML_1 = require("./generateHTML");
+describe("generateHTML", function () {
+    it("should save the generated HTML to a file", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var data, outputPath, savedHtml;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, axios_1.default.get("https://www.boredapi.com/api/activity")];
-                case 1:
-                    response = _a.sent();
-                    return [2 /*return*/, response.data];
-                case 2:
-                    error_1 = _a.sent();
-                    console.error(error_1);
-                    throw error_1;
-                case 3: return [2 /*return*/];
-            }
-        });
-    });
-}
-// const data = {
-//   activity: "Explore the nightlife of your city",
-//   type: "social",
-//   participants: 1,
-//   price: 0.1,
-//   link: "",
-//   key: "2237769",
-//   accessibility: 0.32,
-// };
-function generateHTML(i) {
-    return __awaiter(this, void 0, void 0, function () {
-        var templatePath, template, data, uppercaseData, key, value, rendered, outputFilePath;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    templatePath = path.join(__dirname, 'main.html');
-                    return [4 /*yield*/, fs.promises.readFile(templatePath, 'utf-8')];
-                case 1:
-                    template = _a.sent();
-                    return [4 /*yield*/, getActivity()];
-                case 2:
-                    data = _a.sent();
-                    uppercaseData = {
-                        activity: "",
-                        type: "",
-                        participants: 0,
-                        price: 0,
+                    data = {
+                        activity: "Explore the nightlife of your city",
+                        type: "social",
+                        participants: 1,
+                        price: 0.1,
                         link: "",
-                        key: "",
-                        accessibility: 0
+                        key: "2237769",
+                        accessibility: 0.32,
                     };
-                    for (key in data) {
-                        value = data[key];
-                        uppercaseData[key] =
-                            typeof value === "string" ? value.toUpperCase() : String(value);
-                    }
-                    console.log(uppercaseData);
-                    rendered = eta.render(template, uppercaseData);
-                    outputFilePath = path.join(__dirname, "output", "out".concat(i, ".html"));
-                    return [4 /*yield*/, fs.promises.writeFile(outputFilePath, rendered)];
-                case 3:
+                    outputPath = path.join(__dirname, "output/out1.html");
+                    return [4 /*yield*/, (0, generateHTML_1.generateHTML)(1)];
+                case 1:
                     _a.sent();
-                    console.log('HTML file generated:', outputFilePath);
+                    return [4 /*yield*/, fs.promises.readFile(outputPath, "utf-8")];
+                case 2:
+                    savedHtml = _a.sent();
+                    expect(savedHtml).toBeTruthy();
                     return [2 /*return*/];
             }
         });
-    });
-}
-exports.generateHTML = generateHTML;
-for (var i = 0; i < 10; i++) {
-    generateHTML(i);
-}
+    }); });
+});

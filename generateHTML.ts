@@ -36,7 +36,7 @@ async function getActivity(): Promise<Activity> {
 //   accessibility: 0.32,
 // };
 export async function generateHTML(i: number) {
-  const templatePath = path.join(__dirname, 'index.html');
+  const templatePath = path.join(__dirname, 'main.html');
   const template = await fs.promises.readFile(templatePath, 'utf-8');
   const data = await getActivity();
   const uppercaseData: Activity = {
