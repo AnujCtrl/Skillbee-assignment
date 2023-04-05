@@ -35,7 +35,7 @@ async function getActivity(): Promise<Activity> {
 //   key: "2237769",
 //   accessibility: 0.32,
 // };
-export async function generateHTML() {
+export async function generateHTML(i: number) {
   const templatePath = path.join(__dirname, 'index.html');
   const template = await fs.promises.readFile(templatePath, 'utf-8');
   const data = await getActivity();
@@ -56,7 +56,7 @@ export async function generateHTML() {
   console.log(uppercaseData);
 
   const rendered = eta.render(template, uppercaseData);
-  const outputFilePath = path.join(__dirname,"output", `${data.activity.replace(/\s+/g, '')}.html`);
+  const outputFilePath = path.join(__dirname,"output", `${i}.html`);
   await fs.promises.writeFile(outputFilePath, rendered);
 
   console.log('HTML file generated:', outputFilePath);
@@ -64,5 +64,5 @@ export async function generateHTML() {
 
 
 for (const i of Array(10)) {
-  generateHTML();
+  generateHTML(i);
 }
