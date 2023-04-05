@@ -9,7 +9,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 60%;
+  width: 65%;
 }
 .container_1{
   display: flex;
@@ -17,7 +17,6 @@ html, body {
   justify-content: flex-start;
   padding-left: 50px;
   padding-top: 20px;
-  height: 100%;
 }
 .btn{
   display: flex;
@@ -31,8 +30,8 @@ html, body {
 }
 .title{
   flex-wrap:wrap;
-  width: 70%;
-  font-size: 40px;
+  width: 50%;
+  font-size: 30px;
 }
 .subtitle{
   padding-top: 20px;
