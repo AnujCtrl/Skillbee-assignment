@@ -1,12 +1,11 @@
 # Script for Generating Unique Pages
 
 This repository contains a script for generating <100 unique pages dynamically. The script uses an API to fetch data and a templating engine to generate the UI according to the given wireframe.
-Requirements
 
 ## To run the script, you will need:
 
-Javascript or Typescript installed
-A templating engine of your choice (e.g. eta.js)
+- Javascript or Typescript installed
+- A templating engine of your choice (e.g. eta.js)
 
 ## Installation
 
