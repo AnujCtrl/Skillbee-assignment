@@ -9,14 +9,14 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 50%;
+  min-width: 60%;
 }
 .container_1{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px;
   padding-left: 50px;
+  padding-top: 20px;
   height: 100%;
 }
 .btn{
@@ -27,13 +27,29 @@ html, body {
   height: 50px;
   corner-radius: 0px;
   background-color: #D93A31;
-;
+  border: none;
+}
+.title{
+  flex-wrap:wrap;
+  width: 70%;
+}
+.subtitle{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.sub-subtitle{
+  padding-top: 10vh;
+  padding-bottom: 40px;
+  
 }
 
 .btn-text{
   display: flex;
   text-align: center;
   color: #fff;
+  font-weight: bold;
 }
 .col-2{
   display: flex;
@@ -54,17 +70,48 @@ html, body {
 
 }
 
-
-.left {
-  background-color: #eee;
-  text-weight: bold;
-  text-align: left;
-  font-size: 10px;
-}
-.left > span {
+.info{
   display: flex;
-  font-size: 40px;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
 }
 
+.info span{
+  font-size: 50px;
+}
+
+.right{
+  margin-left: 40px;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #2B2B35;
+  height: 15vh;
+  align-items: center;
+}
+
+.accessibility {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.type{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.accessibility div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 10px;
+}
+.type div{
+   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 10px;
+}

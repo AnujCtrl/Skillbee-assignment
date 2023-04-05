@@ -10,16 +10,14 @@
 <body>
 <div class="col-1" >
     <div class="container_1">
-        <div>
-            <div class="key">
-                <%= it.data.key %>
-            </div>
-            <div class="title">
-                <h1><%= it.data.activity %></h1>
-            </div>
-            <div class="subtitle">
-                OUTDOOR & SPORTING GOODS COMPANY
-            </div>
+        <div class="key">
+            <%= it.data.key %>
+        </div>
+        <div class="title">
+            <h1><%= it.data.activity %></h1>
+        </div>
+        <div class="subtitle">
+            OUTDOOR & SPORTING GOODS COMPANY
         </div>
         <button class="btn">
             <div class="btn-text">EXPLORE MORE
@@ -29,32 +27,36 @@
                 </svg>
             </div>
         </button>
-        <div>
+        <div class="sub-subtitle">
             We have more special goods for you
         </div>
-        <div style="display: flex;align-items: flex-start;">
+        <div class="info">
             <div class="left">
                 MORE THAN
+                <br>
                 <span><strong>50+</strong></span>
+                <br>
                 <strong>ADVENTURE PRODUCTS</strong>
             </div>
-            <div class="left">
-                MORE THAN
+            <div class="right">
+                MORE THAN 
+                <br>
                 <span><strong>75+</strong></span>
+                <br>
                 <strong>OUTLET IN INDONESIA</strong>
             </div>
         </div>
     </div>
-    <div style="display: flex;background-color: #2B2B35;bottom: 0;left: 0;">
-        <div style="display: flex;">
-            <img style="width: 50px; height:50px;"src="Assets/card-send.png" alt="">
-            <div>
+    <div class="footer">
+        <div class="accessibility">
+            <img style="width: 40px; height: 40px;"src="Assets/card-send.png" alt="">
+            <div >
                 <span style="color: azure;font-size: 8px;">ACCESSIBILITY</span>
                 <h1 style="color: azure;font-size: 12px;"> <%= it.data.accessibility %></h1>
             </div>
         </div>
-        <div style="display: flex;">
-            <img style="width: 50px; height:50px;"src="Assets/shield-tick.png" alt="">
+        <div class="type">
+            <img style="width: 40px; height:40px;"src="Assets/shield-tick.png" alt="">
             <div>
                 <span style="color: azure;font-size: 8px;">TYPE</span>
                 <h1 style="color: azure;font-size: 12px;"> <%= it.data.type %></h1>
