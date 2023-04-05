@@ -25,7 +25,7 @@ Testing
   
 Lighthouse score
   
-    ![image](https://user-images.githubusercontent.com/63535089/230079414-3ca94a15-467b-4654-9dfb-d3553d85acea.png)
+ ![image](https://user-images.githubusercontent.com/63535089/230079414-3ca94a15-467b-4654-9dfb-d3553d85acea.png)
 
 Areas of Improvement:
     - responsiveness
