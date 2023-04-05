@@ -36,15 +36,17 @@ async function getActivity(): Promise<Activity> {
 //   accessibility: 0.32,
 // };
 export async function generateHTML() {
-  const templatePath = path.join(__dirname, "index.html");
-  const template = await fs.promises.readFile(templatePath, "utf-8");
+  const templatePath = path.join(__dirname, 'index.html');
+  const template = await fs.promises.readFile(templatePath, 'utf-8');
   const data = await getActivity();
   console.log(data);
 
   const rendered = eta.render(template, data);
-  await fs.promises.writeFile(
-    __dirname + data.activity.replace(/\s+/g, "")+".html",
-    rendered
-  );
+  const outputFilePath = path.join(__dirname, `${data.activity.replace(/\s+/g, '')}.html`);
+  await fs.promises.writeFile(outputFilePath, rendered);
+
+  console.log('HTML file generated:', outputFilePath);
 }
+
+generateHTML();
 
