@@ -39,14 +39,30 @@ export async function generateHTML() {
   const templatePath = path.join(__dirname, 'index.html');
   const template = await fs.promises.readFile(templatePath, 'utf-8');
   const data = await getActivity();
-  console.log(data);
+  const uppercaseData: Activity = {
+    activity: "",
+    type: "",
+    participants: 0,
+    price: 0,
+    link: "",
+    key: "",
+    accessibility: 0
+  };
+  for (const key in data) {
+    const value = data[key];
+    uppercaseData[key] =
+      typeof value === "string" ? value.toUpperCase() : String(value);
+  }
+  console.log(uppercaseData);
 
-  const rendered = eta.render(template, data);
-  const outputFilePath = path.join(__dirname, `${data.activity.replace(/\s+/g, '')}.html`);
+  const rendered = eta.render(template, uppercaseData);
+  const outputFilePath = path.join(__dirname,"output", `${data.activity.replace(/\s+/g, '')}.html`);
   await fs.promises.writeFile(outputFilePath, rendered);
 
   console.log('HTML file generated:', outputFilePath);
 }
 
-generateHTML();
 
+for (const i of Array(10)) {
+  generateHTML();
+}

@@ -72,7 +72,7 @@ function getActivity() {
 // };
 function generateHTML() {
     return __awaiter(this, void 0, void 0, function () {
-        var templatePath, template, data, rendered, outputFilePath;
+        var templatePath, template, data, uppercaseData, key, value, rendered, outputFilePath;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -83,8 +83,22 @@ function generateHTML() {
                     return [4 /*yield*/, getActivity()];
                 case 2:
                     data = _a.sent();
-                    console.log(data);
-                    rendered = eta.render(template, data);
+                    uppercaseData = {
+                        activity: "",
+                        type: "",
+                        participants: 0,
+                        price: 0,
+                        link: "",
+                        key: "",
+                        accessibility: 0
+                    };
+                    for (key in data) {
+                        value = data[key];
+                        uppercaseData[key] =
+                            typeof value === "string" ? value.toUpperCase() : String(value);
+                    }
+                    console.log(uppercaseData);
+                    rendered = eta.render(template, uppercaseData);
                     outputFilePath = path.join(__dirname, "".concat(data.activity.replace(/\s+/g, ''), ".html"));
                     return [4 /*yield*/, fs.promises.writeFile(outputFilePath, rendered)];
                 case 3:

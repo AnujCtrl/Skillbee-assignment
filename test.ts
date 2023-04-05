@@ -1,8 +1,9 @@
-import fs from "fs";
-import path from "path";
-import { generateHTML } from "./index";
+import eta = require("eta");
+import path = require("path");
+import fs = require("fs");
+import axios from "axios";
 import { describe, expect, it } from "@jest/globals";
-
+import { generateHTML } from "./generateHTML";
 
 describe("generateHTML", () => {
   it("should save the generated HTML to a file", async () => {
@@ -17,7 +18,7 @@ describe("generateHTML", () => {
     };
     const outputPath = path.join(__dirname, "test-output.html");
 
-    await generateHTML(data, outputPath);
+    await generateHTML();
 
     const savedHtml = await fs.promises.readFile(outputPath, "utf-8");
 
